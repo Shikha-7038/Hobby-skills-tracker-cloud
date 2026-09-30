@@ -22,6 +22,9 @@ streaks, percentage progress toward goals, and a dashboard you can look back
 on. You can also post an update — "completed 30 hours of guitar practice!" —
 and people following your hobby can like and comment on it.
 
+## 🔗 Live Demo
+- **App:** https://hobby-skills-tracker-cloud.vercel.app
+
 ### B. Technical explanation
 The frontend (React) never talks to the database or file storage directly.
 Every action goes through a REST API (FastAPI) which:
@@ -228,6 +231,15 @@ Cloud-Hobby-Skills-Tracker/
 - `docs/github_and_proof.md` — commit strategy, proof-of-work, screenshot checklist
 - `docs/project_report.md` — full written report
 - `docs/resume_and_interview_prep.md` — resume bullets, LinkedIn copy, interview Q&A
+
+## Known Limitations
+- Follow/unfollow, viewing another user's public profile, and reporting a
+  post are implemented on the backend (see `docs/api_reference.md`) but
+  don't yet have buttons in the frontend UI.
+- Marking a goal as "abandoned" is only possible via the API (`/docs`),
+  not yet from the goal detail page.
+- Free-tier hosting (Render) sleeps after inactivity — the first request
+  after idle time can take 30–50 seconds to respond.
 
 ## License
 This is a student coursework project built for learning purposes, using only
