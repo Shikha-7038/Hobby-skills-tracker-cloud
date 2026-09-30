@@ -1,10 +1,8 @@
-/**
- * services/api.js
- * ================
- * Every network call in the app goes through `apiRequest`, so token
- * attachment, error shaping, and (future) retry logic live in one place
- * instead of being copy-pasted into every component.
- */
+const API_BASE_URL = (import.meta.env.VITE_API_BASE_URL || "").replace(/\/$/, "");
+
+function toUrl(path) {
+  return `${API_BASE_URL}${path}`;
+}
 
 const TOKEN_KEY = "hobbytracker.session";
 
@@ -37,7 +35,7 @@ let refreshPromise = null;
 async function refreshAccessToken() {
   const session = getSession();
   if (!session?.refresh_token) throw new ApiError(401, { message: "Session expired" });
-  const resp = await fetch("/api/refresh", {
+  const resp = await fetch(toUrl("/api/refresh"), {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ refresh_token: session.refresh_token }),
@@ -79,14 +77,15 @@ export async function apiRequest(path, options = {}) {
   };
   attach();
 
-  let response = await fetch(path, { method, headers, body });
+  const url = toUrl(path);
+  let response = await fetch(url, { method, headers, body });
 
   if (response.status === 401 && auth && getSession()?.refresh_token) {
     try {
       if (!refreshPromise) refreshPromise = refreshAccessToken().finally(() => (refreshPromise = null));
       await refreshPromise;
       attach();
-      response = await fetch(path, { method, headers, body });
+      response = await fetch(url, { method, headers, body });
     } catch {
       // fall through - the caller will see the original 401
     }
