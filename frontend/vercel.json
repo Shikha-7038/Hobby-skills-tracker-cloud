@@ -1,6 +1,6 @@
 {
   "rewrites": [
-    { "source": "/api/(.*)", "destination": "https://YOUR-BACKEND-HOST.onrender.com/api/$1" },
-    { "source": "/media/(.*)", "destination": "https://YOUR-BACKEND-HOST.onrender.com/media/$1" }
+    { "source": "/api/(.*)", "destination": "https://hobby-skills-tracker-cloud.onrender.com" },
+    { "source": "/media/(.*)", "destination": "https://hobby-skills-tracker-cloud.onrender.com" }
   ]
 }

@@ -124,25 +124,6 @@ limits, no CDN/API gateway of its own (the PaaS host provides basic
 versions of both).
 *Cloud concepts demonstrated:* every item in the table above.
 
-### Option C — Advanced cloud version
-**Frontend:** React/Next.js · **Backend:** FastAPI · **Cloud:** AWS/Azure/GCP
-with Object Storage (S3/Blob/GCS), CDN (CloudFront), API Gateway, serverless
-functions (Lambda/Cloud Functions), a managed database (RDS/Cloud SQL),
-managed auth (Cognito/Firebase Auth), a cache (ElastiCache/Redis), and
-monitoring (CloudWatch).
-*Difficulty:* high. *Cost:* usually requires a card even on "free tier"
-(spending caps, not $0 guarantees). *Advantages:* production-grade,
-industry-standard services, best for a resume line about AWS/Azure/GCP
-specifically. *Limitations:* steeper learning curve, more moving parts to
-debug, higher risk of accidental charges for a student.
-
-**Recommendation for a student:** Option B. It uses the exact same
-concepts (managed auth, managed DB, object storage, REST API, deployment)
-that Option C uses, without requiring a credit card or IAM/networking
-knowledge — and this codebase's `cloud/` abstraction layer is written so
-that swapping `SupabaseDatabase` for an AWS-backed implementation later is a
-small, contained change, not a rewrite.
-
 ---
 
 ## 5–16. Feature modules
