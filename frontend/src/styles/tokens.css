@@ -1,0 +1,117 @@
+/*
+  Design concept: "a practice logbook you keep with others."
+  Not a SaaS dashboard, not a social-media clone - the whole surface reads
+  like a shared ledger: paper-colored entry cards on a deep cultivated-green
+  chrome, hairline dividers instead of card shadows, and a growth-row streak
+  indicator (small leaf marks) instead of a flame icon or a big bare number.
+
+  Palette
+    --pine     #182B22  app chrome background (deep, cultivated, not black)
+    --pine-700 #22392C  raised panels within the chrome
+    --paper    #F4EFE3  entry-card surface (warm ledger paper)
+    --paper-600 #E7DFC9 hairline dividers / subtle fills on paper
+    --ink      #1E2A22  primary text on paper
+    --ink-600  #52604F  secondary text on paper
+    --cream    #EDE7D8  primary text on pine
+    --cream-600 #A9B3A3 secondary text on pine
+    --gold     #C99A3C  accent: streaks, achievements, primary actions
+    --gold-700 #A87F2E  gold pressed/hover state
+    --sage     #6F9A78  accent: growth, success, completed states
+    --brick    #AE5A45  accent: destructive actions, errors
+*/
+:root {
+  --pine: #182b22;
+  --pine-700: #22392c;
+  --pine-500: #2c463a;
+  --paper: #f4efe3;
+  --paper-600: #e7dfc9;
+  --paper-700: #d8cdac;
+  --ink: #1e2a22;
+  --ink-600: #52604f;
+  --cream: #ede7d8;
+  --cream-600: #a9b3a3;
+  --gold: #c99a3c;
+  --gold-700: #a87f2e;
+  --sage: #6f9a78;
+  --sage-700: #4f7a58;
+  --brick: #ae5a45;
+  --brick-700: #8c4536;
+
+  --font-display: "Fraunces", "Iowan Old Style", Georgia, serif;
+  --font-body: "IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, monospace;
+
+  --radius-card: 10px;
+  --radius-pill: 999px;
+  --shadow-card: 0 1px 0 rgba(30, 42, 34, 0.06);
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background: var(--pine);
+  color: var(--cream);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  margin: 0;
+  line-height: 1.15;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  color: inherit;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
+}
